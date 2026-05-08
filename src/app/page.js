@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 export default function SrogerEditsPortfolio() {
   const reels = [
     {
@@ -32,8 +34,15 @@ export default function SrogerEditsPortfolio() {
     },
   ];
 
+  useEffect(() => {
+    if (window.instgrm) {
+      window.instgrm.Embeds.process();
+    }
+  }, []);
+
   return (
     <main className="bg-black text-white min-h-screen overflow-x-hidden font-sans selection:bg-white selection:text-black">
+
       {/* BACKGROUND */}
       <div className="fixed inset-0 opacity-[0.04] pointer-events-none bg-[radial-gradient(circle_at_center,white_1px,transparent_1px)] bg-[size:40px_40px]" />
 
@@ -53,101 +62,13 @@ export default function SrogerEditsPortfolio() {
           <p className="text-white/60 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
             Content systems designed for attention.
           </p>
-
-          <div className="mt-20 flex flex-col md:flex-row gap-8 justify-center text-left">
-            <div className="border border-white/10 rounded-3xl p-6 backdrop-blur-sm bg-white/[0.02] max-w-sm">
-              <p className="text-white/40 text-sm mb-3 uppercase tracking-widest">
-                Strategy
-              </p>
-              <p className="text-white/80 leading-relaxed">
-                Hooks, storytelling, retention, perception and content systems built to dominate attention.
-              </p>
-            </div>
-
-            <div className="border border-white/10 rounded-3xl p-6 backdrop-blur-sm bg-white/[0.02] max-w-sm">
-              <p className="text-white/40 text-sm mb-3 uppercase tracking-widest">
-                System
-              </p>
-              <p className="text-white/80 leading-relaxed">
-                Most clients only dedicate 2-3 hours monthly to recording. Everything else is handled strategically.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* PHILOSOPHY */}
-      <section className="py-40 px-6 border-t border-white/10">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-20 items-center">
-          <div>
-            <p className="uppercase tracking-[0.4em] text-xs text-white/40 mb-8">
-              Philosophy
-            </p>
-
-            <h2 className="text-4xl md:text-6xl font-semibold leading-tight mb-10">
-              People don’t follow content.
-              <br />
-              They follow perception.
-            </h2>
-          </div>
-
-          <div className="space-y-8 text-white/70 leading-relaxed text-lg">
-            <p>
-              Most creators post randomly.
-            </p>
-
-            <p>
-              We build systems engineered to retain attention, create authority and position personal brands correctly online.
-            </p>
-
-            <p>
-              Every edit, every subtitle, every cut and every hook exists for a reason.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* CONTENT SYSTEM */}
-      <section className="py-40 px-6 border-t border-white/10">
-        <div className="max-w-6xl mx-auto">
-          <p className="uppercase tracking-[0.4em] text-xs text-white/40 mb-8">
-            Content System
-          </p>
-
-          <h2 className="text-4xl md:text-7xl font-semibold max-w-4xl leading-tight mb-24">
-            You record.
-            <br />
-            We build the system.
-          </h2>
-
-          <div className="grid md:grid-cols-5 gap-6">
-            {[
-              "2-3 Hours Recording",
-              "Strategic Extraction",
-              "Storytelling",
-              "Editing & Distribution",
-              "Daily Content Output",
-            ].map((item, index) => (
-              <div
-                key={index}
-                className="border border-white/10 rounded-3xl p-8 bg-white/[0.02] hover:bg-white/[0.04] transition-all duration-500"
-              >
-                <div className="text-white/30 text-sm mb-6">
-                  0{index + 1}
-                </div>
-
-                <div className="text-xl leading-snug font-medium text-white/90">
-                  {item}
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
       {/* REELS */}
       <section className="py-40 px-6 border-t border-white/10">
         <div className="max-w-7xl mx-auto">
+
           <div className="mb-24">
             <p className="uppercase tracking-[0.4em] text-xs text-white/40 mb-8">
               Selected Work
@@ -160,18 +81,33 @@ export default function SrogerEditsPortfolio() {
 
           <div className="space-y-10">
             {reels.map((reel, index) => (
-              <a
+              <div
                 key={index}
-                href={reel.url}
-                target="_blank"
-                className="group border border-white/10 rounded-[32px] p-8 md:p-12 flex flex-col md:flex-row justify-between gap-10 hover:bg-white/[0.03] transition-all duration-500 block"
+                className="group border border-white/10 rounded-[32px] p-8 md:p-12 flex flex-col md:flex-row justify-between gap-10 hover:bg-white/[0.03] transition-all duration-500"
               >
+
+                {/* VIDEO */}
+                <div className="w-full md:w-[400px]">
+                  <blockquote
+                    className="instagram-media"
+                    data-instgrm-permalink={reel.url}
+                    data-instgrm-version="14"
+                    style={{
+                      background: "#000",
+                      border: 0,
+                      margin: 0,
+                      width: "100%",
+                    }}
+                  />
+                </div>
+
+                {/* TEXTO */}
                 <div className="max-w-2xl">
                   <p className="text-white/30 text-sm mb-6 uppercase tracking-[0.3em]">
                     Case Study 0{index + 1}
                   </p>
 
-                  <h3 className="text-3xl md:text-5xl font-semibold mb-8 group-hover:translate-x-2 transition-transform duration-500">
+                  <h3 className="text-3xl md:text-5xl font-semibold mb-8">
                     {reel.title}
                   </h3>
 
@@ -180,76 +116,56 @@ export default function SrogerEditsPortfolio() {
                   </p>
                 </div>
 
-                <div className="md:max-w-md text-white/50 leading-relaxed text-base border-l border-white/10 pl-0 md:pl-10">
-                  <p className="mb-5 text-white/80 font-medium">
-                    Why it worked:
-                  </p>
-
-                  <ul className="space-y-4">
-                    <li>• Strong visual interruption in the first seconds.</li>
-                    <li>• Fast pacing designed for retention.</li>
-                    <li>• Emotional tension every few moments.</li>
-                    <li>• Strategic subtitles and rhythm control.</li>
-                    <li>• Built to create authority, not only views.</li>
-                  </ul>
-                </div>
-              </a>
+              </div>
             ))}
           </div>
+
         </div>
       </section>
 
       {/* CLIENTS */}
       <section className="py-40 px-6 border-t border-white/10">
         <div className="max-w-6xl mx-auto">
+
           <p className="uppercase tracking-[0.4em] text-xs text-white/40 mb-8">
             Clients
           </p>
 
           <div className="grid md:grid-cols-2 gap-8">
+
             <a
               href="https://www.instagram.com/alvarodaygame/"
               target="_blank"
               className="border border-white/10 rounded-[32px] p-10 hover:bg-white/[0.03] transition-all duration-500"
             >
-              <h3 className="text-4xl font-semibold mb-8">Álvaro Reyes</h3>
-
-              <p className="text-white/60 leading-relaxed text-lg">
-                Strategic storytelling focused on authority, perception and audience retention.
+              <h3 className="text-4xl font-semibold mb-4">Álvaro Reyes</h3>
+              <p className="text-white/60 mb-4">
+                Strategic storytelling & authority positioning.
+              </p>
+              <p className="text-white/40 text-sm">
+                Instagram profile • high authority creator
               </p>
             </a>
 
             <a
-              href="https://www.instagram.com/rubenlopezreyes/reels/"
+              href="https://www.instagram.com/rubenlopezreyes/"
               target="_blank"
               className="border border-white/10 rounded-[32px] p-10 hover:bg-white/[0.03] transition-all duration-500"
             >
-              <h3 className="text-4xl font-semibold mb-8">Rubén López</h3>
-
-              <p className="text-white/60 leading-relaxed text-lg">
-                High-retention content systems designed to increase attention and positioning.
+              <h3 className="text-4xl font-semibold mb-4">Rubén López</h3>
+              <p className="text-white/60 mb-4">
+                High retention content systems & growth strategy.
+              </p>
+              <p className="text-white/40 text-sm">
+                Instagram profile • content creator
               </p>
             </a>
+
           </div>
+
         </div>
       </section>
 
-      {/* FINAL */}
-      <section className="py-52 px-6 border-t border-white/10 text-center">
-        <div className="max-w-4xl mx-auto">
-          <p className="uppercase tracking-[0.5em] text-xs text-white/40 mb-10">
-            SROGEREDITS
-          </p>
-
-          <h2 className="text-4xl md:text-7xl font-semibold leading-tight mb-10">
-            Editing is psychology.
-          </h2>
-
-          <p className="text-white/50 text-lg max-w-2xl mx-auto leading-relaxed">
-            Content systems built for creators, brands and entrepreneurs who want attention, authority and perception.
-          </p>
-        </div>
-      </section>
     </main>
   );
 }
