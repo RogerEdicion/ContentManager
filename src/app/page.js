@@ -34,10 +34,16 @@ export default function SrogerEditsPortfolio() {
     },
   ];
 
+  // 🔥 FIX IMPORTANTE PARA INSTAGRAM EMBEDS
   useEffect(() => {
-    if (window.instgrm) {
-      window.instgrm.Embeds.process();
-    }
+    const interval = setInterval(() => {
+      if (window.instgrm && window.instgrm.Embeds) {
+        window.instgrm.Embeds.process();
+        clearInterval(interval);
+      }
+    }, 500);
+
+    return () => clearInterval(interval);
   }, []);
 
   return (
