@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+"use client";
 
 export default function SrogerEditsPortfolio() {
   const reels = [
@@ -6,45 +6,33 @@ export default function SrogerEditsPortfolio() {
       title: "+4M Views",
       description:
         "Hook de alto contraste + narrativa inmediata + tensión sostenida cada pocos segundos.",
-      url: "https://www.instagram.com/reel/DU21763DKt1/",
+      video: "/videos/video1.mp4",
     },
     {
       title: "Strategic Storytelling",
       description:
         "Contenido pensado para retención, percepción y posicionamiento digital.",
-      url: "https://www.instagram.com/reel/DX18QhdAmyA/",
+      video: "/videos/video2.mp4",
     },
     {
       title: "Attention Engineering",
       description:
         "Cada segundo del video tiene una función específica dentro de la estructura de atención.",
-      url: "https://www.instagram.com/reel/DVOOQOfimp3/",
+      video: "/videos/video3.mp4",
     },
     {
       title: "Content Systems",
       description:
         "Transformamos pocas horas de grabación en un sistema completo de contenido.",
-      url: "https://www.instagram.com/reel/DXMdC8LlLpM/",
+      video: "/videos/video4.mp4",
     },
     {
       title: "Perception & Authority",
       description:
         "No se trata solo de vistas. Se trata de construir percepción digital.",
-      url: "https://www.instagram.com/reel/DXxEYbbnJNM/",
+      video: "/videos/video5.mp4",
     },
   ];
-
-  // 🔥 FIX IMPORTANTE PARA INSTAGRAM EMBEDS
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (window.instgrm && window.instgrm.Embeds) {
-        window.instgrm.Embeds.process();
-        clearInterval(interval);
-      }
-    }, 500);
-
-    return () => clearInterval(interval);
-  }, []);
 
   return (
     <main className="bg-black text-white min-h-screen overflow-x-hidden font-sans selection:bg-white selection:text-black">
@@ -89,26 +77,24 @@ export default function SrogerEditsPortfolio() {
             {reels.map((reel, index) => (
               <div
                 key={index}
-                className="group border border-white/10 rounded-[32px] p-8 md:p-12 flex flex-col md:flex-row justify-between gap-10 hover:bg-white/[0.03] transition-all duration-500"
+                className="group border border-white/10 rounded-[32px] p-8 md:p-12 flex flex-col md:flex-row gap-10 hover:bg-white/[0.03] transition-all duration-500"
               >
 
                 {/* VIDEO */}
-                <div className="w-full md:w-[400px]">
-                  <blockquote
-                    className="instagram-media"
-                    data-instgrm-permalink={reel.url}
-                    data-instgrm-version="14"
-                    style={{
-                      background: "#000",
-                      border: 0,
-                      margin: 0,
-                      width: "100%",
-                    }}
+                <div className="w-full md:w-[400px] shrink-0">
+                  <video
+                    src={reel.video}
+                    controls
+                    muted
+                    loop
+                    playsInline
+                    autoPlay
+                    className="w-full rounded-2xl border border-white/10"
                   />
                 </div>
 
-                {/* TEXTO */}
-                <div className="max-w-2xl">
+                {/* TEXT */}
+                <div className="flex-1">
                   <p className="text-white/30 text-sm mb-6 uppercase tracking-[0.3em]">
                     Case Study 0{index + 1}
                   </p>
@@ -142,12 +128,17 @@ export default function SrogerEditsPortfolio() {
             <a
               href="https://www.instagram.com/alvarodaygame/"
               target="_blank"
+              rel="noopener noreferrer"
               className="border border-white/10 rounded-[32px] p-10 hover:bg-white/[0.03] transition-all duration-500"
             >
-              <h3 className="text-4xl font-semibold mb-4">Álvaro Reyes</h3>
+              <h3 className="text-4xl font-semibold mb-4">
+                Álvaro Reyes
+              </h3>
+
               <p className="text-white/60 mb-4">
                 Strategic storytelling & authority positioning.
               </p>
+
               <p className="text-white/40 text-sm">
                 Instagram profile • high authority creator
               </p>
@@ -156,12 +147,17 @@ export default function SrogerEditsPortfolio() {
             <a
               href="https://www.instagram.com/rubenlopezreyes/"
               target="_blank"
+              rel="noopener noreferrer"
               className="border border-white/10 rounded-[32px] p-10 hover:bg-white/[0.03] transition-all duration-500"
             >
-              <h3 className="text-4xl font-semibold mb-4">Rubén López</h3>
+              <h3 className="text-4xl font-semibold mb-4">
+                Rubén López
+              </h3>
+
               <p className="text-white/60 mb-4">
                 High retention content systems & growth strategy.
               </p>
+
               <p className="text-white/40 text-sm">
                 Instagram profile • content creator
               </p>
