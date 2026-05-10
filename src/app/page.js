@@ -1,322 +1,577 @@
-"use client";
+"use client"
 
-export default function SrogerEditsPortfolio() {
-  const reels = [
-    {
-      title: "+4M Views",
-      description:
-        "Este contenido funcionó gracias a una estructura de atención agresiva desde el primer segundo. Se utilizó un hook de alto contraste, cortes rápidos y una narrativa diseñada para mantener la curiosidad constantemente activa. Cada transición, subtítulo y cambio visual tuvo un propósito específico dentro de la retención.",
-      video: "/videos/video1.mp4",
-    },
-    {
-      title: "Storytelling Estratégico",
-      description:
-        "El objetivo de este contenido no era solamente generar vistas, sino construir percepción digital. La edición, el ritmo y la narrativa fueron diseñados para posicionar autoridad y hacer que la audiencia perciba al creador como alguien diferente al promedio.",
-      video: "/videos/video2.mp4",
-    },
-    {
-      title: "Ingeniería de Atención",
-      description:
-        "Cada segundo del video cumple una función psicológica dentro de la estructura de atención. Se trabajó sobre micro estímulos visuales, pausas estratégicas y cambios de energía para evitar caídas de retención y aumentar el tiempo de visualización.",
-      video: "/videos/video3.mp4",
-    },
-    {
-      title: "Sistema de Contenido",
-      description:
-        "No trabajamos videos aislados. Transformamos horas de grabación en un sistema completo de contenido pensado para redes sociales. La idea es multiplicar piezas, mantener consistencia y construir presencia digital constante.",
-      video: "/videos/video4.mp4",
-    },
-    {
-      title: "Percepción & Autoridad",
-      description:
-        "Las redes no se tratan solamente de views. Se trata de construir percepción, autoridad y posicionamiento. La edición, el branding visual y la narrativa hacen que el creador transmita más valor y destaque dentro de su nicho.",
-      video: "/videos/video5.mp4",
-    },
-  ];
+import { motion } from "framer-motion"
+import {
+  Sparkles,
+  Rocket,
+  PlaySquare,
+  BadgeDollarSign,
+  CalendarDays,
+} from "lucide-react"
 
-  const services = [
+export default function SantiAmatProposal() {
+  const calendar = [
     {
-      title: "Content Manager",
-      text: "Planificación estratégica de contenido orientada al crecimiento, posicionamiento y construcción de marca personal.",
+      day: "LUNES",
+      content: ["Story CTA / Venta", "Reel Orgánico"],
     },
     {
-      title: "Planificación de Contenido",
-      text: "Organización de ideas, calendario de publicaciones y estrategia adaptada al tipo de audiencia y objetivo.",
+      day: "MARTES",
+      content: ["Video fuerte YouTube", "Clip extraído YouTube"],
     },
     {
-      title: "Creación de Guiones",
-      text: "Guiones optimizados para retención, hooks virales y storytelling enfocado en captar atención.",
+      day: "MIÉRCOLES",
+      content: ["Story CTA / Venta", "Reel Orgánico"],
     },
     {
-      title: "Grabación Asistida",
-      text: "Acompañamiento por videollamada durante la grabación para mejorar presencia, delivery y estructura.",
+      day: "JUEVES",
+      content: ["Clip extraído YouTube"],
     },
     {
-      title: "Edición Profesional",
-      text: "Edición enfocada en retención, percepción premium y construcción de autoridad digital.",
+      day: "VIERNES",
+      content: ["Story CTA / Venta", "Reel Orgánico"],
     },
     {
-      title: "Plan de Stories",
-      text: "Estrategias de historias para mantener presencia diaria y fortalecer conexión con la audiencia.",
+      day: "SÁBADO",
+      content: ["Clip extraído YouTube"],
     },
-    {
-      title: "Posteo en Redes",
-      text: "Organización y subida de contenido optimizando formatos, horarios y consistencia.",
-    },
-    {
-      title: "Setter de Cuenta",
-      text: "Servicio extra orientado a mejorar respuestas, gestión de mensajes y conversión de potenciales clientes.",
-    },
-  ];
+  ]
 
   return (
-    <main className="bg-black text-white min-h-screen overflow-x-hidden font-sans selection:bg-white selection:text-black">
+    <main className="bg-black text-white overflow-hidden relative">
 
       {/* BACKGROUND */}
-      <div className="fixed inset-0 opacity-[0.04] pointer-events-none bg-[radial-gradient(circle_at_center,white_1px,transparent_1px)] bg-[size:40px_40px]" />
+
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+
+        <motion.div
+          animate={{
+            x: [0, 100, 0],
+            y: [0, -50, 0],
+          }}
+          transition={{
+            duration: 12,
+            repeat: Infinity,
+          }}
+          className="absolute top-0 left-0 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-3xl"
+        />
+
+        <motion.div
+          animate={{
+            x: [0, -80, 0],
+            y: [0, 80, 0],
+          }}
+          transition={{
+            duration: 16,
+            repeat: Infinity,
+          }}
+          className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-3xl"
+        />
+
+      </div>
 
       {/* HERO */}
-      <section className="min-h-screen flex flex-col justify-center items-center px-5 sm:px-6 relative">
 
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-black" />
+      <section className="relative min-h-screen flex items-center border-b border-white/10">
 
-        <div className="max-w-5xl mx-auto text-center z-10 w-full">
+        <div className="max-w-7xl mx-auto px-6 py-24 relative z-10 w-full">
 
-          <p className="uppercase tracking-[0.35em] sm:tracking-[0.5em] text-[10px] sm:text-xs text-white/40 mb-5 sm:mb-6">
-            La atención se diseña
-          </p>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            className="inline-flex items-center gap-3 border border-cyan-400/20 bg-cyan-400/10 px-5 py-3 rounded-full text-cyan-300 mb-10 backdrop-blur-sm"
+          >
+            <Sparkles size={16} />
+            <span className="tracking-wide text-sm">
+              PROPUESTA EXCLUSIVA PARA SANTI AMAT
+            </span>
+          </motion.div>
 
-          <h1 className="text-[42px] sm:text-6xl md:text-8xl font-semibold tracking-tight leading-[0.9] mb-6 sm:mb-8 break-words">
-            SROGEREDITS
-          </h1>
+          <div className="max-w-5xl">
 
-          <p className="text-white/60 text-base sm:text-lg md:text-xl max-w-2xl mx-auto leading-relaxed px-2">
-            Sistemas de contenido diseñados para generar atención, percepción y posicionamiento digital.
-          </p>
+            <motion.h1
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.9 }}
+              className="text-5xl md:text-7xl font-black leading-none tracking-tight"
+            >
+              Transformemos tu contenido en un sistema de
+              <span className="text-cyan-400"> autoridad, monetización y crecimiento.</span>
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1 }}
+              className="text-zinc-400 text-xl mt-10 leading-relaxed"
+            >
+              Santi, ya tenés algo que muchísima gente nunca consigue:
+              autoridad real y una audiencia que ya conecta con vos.
+              <br />
+              <br />
+              El problema no es el contenido.
+              El problema es que Instagram hoy no está capitalizando todo el potencial que ya generás en YouTube.
+              <br />
+              <br />
+              Mi objetivo es convertir tu contenido en un sistema completo:
+              distribución, branding, posicionamiento premium y monetización.
+            </motion.p>
+
+          </div>
 
         </div>
+
       </section>
 
-      {/* ABOUT */}
-      <section className="py-24 sm:py-40 px-5 sm:px-6 border-t border-white/10">
+      {/* STATS */}
 
-        <div className="max-w-6xl mx-auto">
+      <section className="max-w-7xl mx-auto px-6 py-24 relative z-10">
 
-          <p className="uppercase tracking-[0.35em] text-[10px] sm:text-xs text-white/40 mb-8">
-            Enfoque
-          </p>
+        <div className="grid md:grid-cols-4 gap-6">
 
-          <h2 className="text-3xl sm:text-5xl md:text-7xl font-semibold leading-tight max-w-5xl mb-12">
-            No editamos videos.
-            <br />
-            Construimos percepción digital.
-          </h2>
+          {[
+            ["24+", "Piezas mensuales"],
+            ["12", "Reels orgánicos"],
+            ["12", "Clips extraídos YouTube"],
+            ["100%", "Foco en monetización"],
+          ].map((item, index) => (
 
-          <p className="text-white/60 text-base sm:text-lg leading-relaxed max-w-4xl">
-            Cada pieza de contenido tiene un objetivo específico dentro de la estrategia.
-            Desde el hook inicial hasta el último segundo del video, todo está pensado
-            para maximizar retención, generar autoridad y aumentar el impacto de la marca personal.
-            El contenido ya no compite solamente por vistas; compite por atención.
-          </p>
+            <motion.div
+              key={index}
+              whileHover={{ y: -8 }}
+              className="bg-white/[0.03] border border-white/10 rounded-[28px] p-8 text-center"
+            >
+
+              <h3 className="text-5xl font-black text-cyan-400">
+                {item[0]}
+              </h3>
+
+              <p className="text-zinc-400 mt-4">
+                {item[1]}
+              </p>
+
+            </motion.div>
+
+          ))}
 
         </div>
+
       </section>
 
-      {/* REELS */}
-      <section className="py-24 sm:py-40 px-5 sm:px-6 border-t border-white/10">
+      {/* PERFIL */}
 
-        <div className="max-w-7xl mx-auto">
+      <section className="border-y border-white/10 bg-zinc-950/40 relative z-10">
 
-          <div className="mb-20 sm:mb-24">
+        <div className="max-w-7xl mx-auto px-6 py-28">
 
-            <p className="uppercase tracking-[0.35em] text-[10px] sm:text-xs text-white/40 mb-8">
-              Trabajos Seleccionados
+          <div className="text-center max-w-5xl mx-auto mb-20">
+
+            <p className="text-cyan-400 uppercase tracking-[0.3em] text-sm mb-5">
+              Reestructuración visual
             </p>
 
-            <h2 className="text-3xl sm:text-5xl md:text-7xl font-semibold leading-tight max-w-5xl">
-              Contenido diseñado para retención, posicionamiento y percepción.
+            <h2 className="text-5xl md:text-6xl font-black leading-tight mb-10">
+              Pasar de un perfil improvisado
+              a una marca personal premium.
             </h2>
 
-          </div>
-
-          <div className="space-y-10">
-
-            {reels.map((reel, index) => (
-              <div
-                key={index}
-                className="group border border-white/10 rounded-[28px] sm:rounded-[32px] p-5 sm:p-8 md:p-12 flex flex-col lg:flex-row gap-8 sm:gap-10 hover:bg-white/[0.03] transition-all duration-500"
-              >
-
-                {/* VIDEO */}
-                <div className="w-full lg:w-[400px] shrink-0">
-
-                  <video
-                    src={reel.video}
-                    controls
-                    muted
-                    loop
-                    playsInline
-                    autoPlay
-                    className="w-full rounded-2xl border border-white/10"
-                  />
-
-                </div>
-
-                {/* TEXT */}
-                <div className="flex-1 flex flex-col justify-center">
-
-                  <p className="text-white/30 text-xs sm:text-sm mb-5 uppercase tracking-[0.25em]">
-                    Caso de Estudio 0{index + 1}
-                  </p>
-
-                  <h3 className="text-2xl sm:text-4xl md:text-5xl font-semibold mb-6 sm:mb-8 leading-tight">
-                    {reel.title}
-                  </h3>
-
-                  <p className="text-white/60 text-base sm:text-lg leading-relaxed">
-                    {reel.description}
-                  </p>
-
-                </div>
-
-              </div>
-            ))}
-
-          </div>
-
-        </div>
-      </section>
-
-      {/* SERVICES */}
-      <section className="py-24 sm:py-40 px-5 sm:px-6 border-t border-white/10">
-
-        <div className="max-w-7xl mx-auto">
-
-          <div className="mb-20">
-
-            <p className="uppercase tracking-[0.35em] text-[10px] sm:text-xs text-white/40 mb-8">
-              Servicios
+            <p className="text-zinc-400 text-xl leading-relaxed">
+              El objetivo es construir una identidad muchísimo más profesional,
+              más clara y mucho más monetizable.
             </p>
 
-            <h2 className="text-3xl sm:text-5xl md:text-7xl font-semibold leading-tight max-w-5xl">
-              Todo lo necesario para construir una presencia digital fuerte.
-            </h2>
-
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid lg:grid-cols-2 gap-10">
 
-            {services.map((service, index) => (
-              <div
-                key={index}
-                className="border border-white/10 rounded-[28px] p-7 sm:p-10 hover:bg-white/[0.03] transition-all duration-500"
-              >
+            <motion.div
+              whileHover={{ y: -5 }}
+              className="border border-red-500/20 rounded-[32px] overflow-hidden bg-black"
+            >
 
-                <h3 className="text-2xl sm:text-3xl font-semibold mb-5">
-                  {service.title}
-                </h3>
+              <div className="p-6 border-b border-white/10">
 
-                <p className="text-white/60 leading-relaxed text-base sm:text-lg">
-                  {service.text}
+                <p className="text-red-400 font-bold tracking-wide">
+                  PERFIL ACTUAL
                 </p>
 
               </div>
+
+              <div className="aspect-[4/5] overflow-hidden">
+
+                <img
+                  src="/imagen1.png"
+                  className="w-full h-full object-cover"
+                />
+
+              </div>
+
+              <div className="p-8 space-y-4 text-zinc-400">
+
+                <p>• Feed sin estructura premium</p>
+                <p>• No comunica autoridad rápidamente</p>
+                <p>• Lifestyle mezclado con contenido profesional</p>
+                <p>• Falta branding fuerte</p>
+                <p>• Reels sin sistema visual consistente</p>
+
+              </div>
+
+            </motion.div>
+
+            <motion.div
+              whileHover={{ y: -5 }}
+              className="border border-cyan-500/30 rounded-[32px] overflow-hidden bg-black shadow-2xl shadow-cyan-500/10"
+            >
+
+              <div className="p-6 border-b border-white/10">
+
+                <p className="text-cyan-400 font-bold tracking-wide">
+                  NUEVO SISTEMA PROPUESTO
+                </p>
+
+              </div>
+
+              <div className="aspect-[4/5] overflow-hidden">
+
+                <img
+                  src="/imagen2.png"
+                  className="w-full h-full object-cover"
+                />
+
+              </div>
+
+              <div className="p-8 space-y-4 text-zinc-300">
+
+                <p>• Branding premium consistente</p>
+                <p>• Sistema pensado para monetizar</p>
+                <p>• Posicionamiento mucho más fuerte</p>
+                <p>• Hooks y reels optimizados</p>
+                <p>• Feed profesional y estructurado</p>
+
+              </div>
+
+            </motion.div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      {/* VIDEOS */}
+
+      <section className="max-w-7xl mx-auto px-6 py-28 relative z-10">
+
+        <div className="text-center max-w-4xl mx-auto mb-20">
+
+          <h2 className="text-5xl font-black mb-8">
+            Comparativa de edición y retención
+          </h2>
+
+          <p className="text-zinc-400 text-xl leading-relaxed">
+            La idea es aumentar muchísimo la retención,
+            el impacto visual y la percepción premium del contenido.
+          </p>
+
+        </div>
+
+        <div className="grid lg:grid-cols-2 gap-10">
+
+          <motion.div
+            whileHover={{ scale: 1.02 }}
+            className="rounded-[32px] overflow-hidden border border-white/10 bg-black"
+          >
+
+            <div className="p-5 border-b border-white/10">
+
+              <p className="text-zinc-300 font-bold">
+                Reel actual
+              </p>
+
+            </div>
+
+            <video
+              src="/video5.mp4"
+              controls
+              className="w-full"
+            />
+
+          </motion.div>
+
+          <motion.div
+            whileHover={{ scale: 1.02 }}
+            className="rounded-[32px] overflow-hidden border border-cyan-500/30 bg-black shadow-2xl shadow-cyan-500/10"
+          >
+
+            <div className="p-5 border-b border-white/10">
+
+              <p className="text-cyan-400 font-bold">
+                Nueva edición propuesta
+              </p>
+
+            </div>
+
+            <video
+              src="/video6.mp4"
+              controls
+              className="w-full"
+            />
+
+          </motion.div>
+
+        </div>
+
+      </section>
+
+      {/* CALENDARIO */}
+
+      <section className="border-y border-white/10 bg-zinc-950/40 relative z-10">
+
+        <div className="max-w-7xl mx-auto px-6 py-28">
+
+          <div className="text-center max-w-5xl mx-auto mb-20">
+
+            <div className="flex justify-center mb-6">
+              <CalendarDays size={40} className="text-cyan-400" />
+            </div>
+
+            <p className="text-cyan-400 uppercase tracking-[0.3em] text-sm mb-5">
+              Planificación estratégica
+            </p>
+
+            <h2 className="text-5xl md:text-6xl font-black leading-tight mb-10">
+              Sistema semanal de contenido.
+            </h2>
+
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            {calendar.map((item, index) => (
+
+              <motion.div
+                key={index}
+                whileHover={{ y: -8 }}
+                className="bg-black border border-white/10 rounded-[28px] p-8"
+              >
+
+                <h3 className="text-2xl font-black text-cyan-400 mb-6">
+                  {item.day}
+                </h3>
+
+                <div className="space-y-4">
+
+                  {item.content.map((content, i) => (
+
+                    <div
+                      key={i}
+                      className="bg-white/[0.03] border border-white/10 rounded-2xl p-4 text-zinc-300"
+                    >
+                      {content}
+                    </div>
+
+                  ))}
+
+                </div>
+
+              </motion.div>
+
             ))}
 
           </div>
 
         </div>
+
       </section>
 
-      {/* CLIENTS */}
-      <section className="py-24 sm:py-40 px-5 sm:px-6 border-t border-white/10">
+      {/* RESUMEN */}
 
-        <div className="max-w-6xl mx-auto">
+      <section className="max-w-7xl mx-auto px-6 py-28 relative z-10">
 
-          <p className="uppercase tracking-[0.35em] text-[10px] sm:text-xs text-white/40 mb-8">
-            Clientes
+        <div className="text-center max-w-5xl mx-auto mb-20">
+
+          <p className="text-cyan-400 uppercase tracking-[0.3em] text-sm mb-5">
+            Sistema completo
           </p>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <h2 className="text-5xl md:text-6xl font-black leading-tight mb-10">
+            Todo lo que voy a gestionar para potenciar tu marca personal.
+          </h2>
 
-            <a
-              href="https://www.instagram.com/alvarodaygame/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="border border-white/10 rounded-[28px] sm:rounded-[32px] p-8 sm:p-10 hover:bg-white/[0.03] transition-all duration-500"
-            >
+        </div>
 
-              <h3 className="text-3xl sm:text-4xl font-semibold mb-4">
-                Álvaro Reyes
+        <div className="grid lg:grid-cols-3 gap-8">
+
+          <motion.div
+            whileHover={{ y: -10 }}
+            className="bg-zinc-950 border border-white/10 rounded-[32px] p-8"
+          >
+
+            <PlaySquare className="text-cyan-400 mb-6" size={40} />
+
+            <h3 className="text-3xl font-black mb-6">
+              Reels orgánicos
+            </h3>
+
+            <ul className="space-y-4 text-zinc-400">
+
+              <li>• 12 reels orgánicos mensuales</li>
+              <li>• Guiones completos</li>
+              <li>• Hooks virales</li>
+              <li>• Storytelling</li>
+              <li>• CTA estratégicos</li>
+              <li>• Edición premium</li>
+
+            </ul>
+
+          </motion.div>
+
+          <motion.div
+            whileHover={{ y: -10 }}
+            className="bg-zinc-950 border border-white/10 rounded-[32px] p-8"
+          >
+
+            <Rocket className="text-cyan-400 mb-6" size={40} />
+
+            <h3 className="text-3xl font-black mb-6">
+              Sistema YouTube
+            </h3>
+
+            <ul className="space-y-4 text-zinc-400">
+
+              <li>• 4 videos fuertes YouTube</li>
+              <li>• Brief estratégico semanal</li>
+              <li>• Optimización de narrativa</li>
+              <li>• Portadas premium</li>
+              <li>• Extracción de clips virales</li>
+
+            </ul>
+
+          </motion.div>
+
+          <motion.div
+            whileHover={{ y: -10 }}
+            className="bg-zinc-950 border border-white/10 rounded-[32px] p-8"
+          >
+
+            <BadgeDollarSign className="text-cyan-400 mb-6" size={40} />
+
+            <h3 className="text-3xl font-black mb-6">
+              Monetización
+            </h3>
+
+            <ul className="space-y-4 text-zinc-400">
+
+              <li>• Stories CTA semanales</li>
+              <li>• Branding premium</li>
+              <li>• Optimización visual</li>
+              <li>• Distribución y posteo</li>
+              <li>• Setter opcional</li>
+
+            </ul>
+
+          </motion.div>
+
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          className="mt-20 bg-cyan-400 text-black rounded-[40px] p-10 md:p-14"
+        >
+
+          <h3 className="text-4xl font-black mb-8">
+            Resumen mensual total
+          </h3>
+
+          <div className="grid md:grid-cols-2 gap-10 text-lg font-semibold">
+
+            <div className="space-y-4">
+
+              <p>• 12 reels orgánicos mensuales</p>
+              <p>• 12 clips extraídos YouTube</p>
+              <p>• 4 videos fuertes YouTube</p>
+              <p>• Stories estratégicas de venta</p>
+
+            </div>
+
+            <div className="space-y-4">
+
+              <p>• Planificación mensual</p>
+              <p>• Guionización completa</p>
+              <p>• Edición premium</p>
+              <p>• Distribución y branding</p>
+
+            </div>
+
+          </div>
+
+        </motion.div>
+
+      </section>
+
+      {/* PRECIO */}
+
+      <section className="border-t border-white/10 relative z-10">
+
+        <div className="max-w-5xl mx-auto px-6 py-28 text-center">
+
+          <p className="text-cyan-400 uppercase tracking-[0.3em] text-sm mb-5">
+            Inversión
+          </p>
+
+          <h2 className="text-7xl font-black mb-8">
+            400 USD / MES
+          </h2>
+
+          <p className="text-zinc-400 text-xl leading-relaxed max-w-4xl mx-auto mb-16">
+            Incluye planificación, guiones, edición, clipping,
+            branding, portadas, distribución y soporte estratégico completo.
+          </p>
+
+          <div className="grid md:grid-cols-2 gap-6 mb-14">
+
+            <div className="bg-zinc-950 border border-white/10 rounded-[32px] p-8 text-left">
+
+              <h3 className="text-2xl font-black mb-6">
+                Condiciones
               </h3>
 
-              <p className="text-white/60 mb-4 text-base sm:text-lg">
-                Storytelling estratégico y posicionamiento de autoridad digital.
-              </p>
+              <ul className="space-y-4 text-zinc-400">
 
-              <p className="text-white/40 text-sm">
-                Perfil de Instagram • creador de alto impacto
-              </p>
+                <li>• 50% al iniciar</li>
+                <li>• 50% al finalizar el primer mes</li>
+                <li>• Luego modalidad mes vencido</li>
+                <li>• Posibilidad de comenzar inmediatamente</li>
 
-            </a>
+              </ul>
 
-            <a
-              href="https://www.instagram.com/rubenlopezreyes/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="border border-white/10 rounded-[28px] sm:rounded-[32px] p-8 sm:p-10 hover:bg-white/[0.03] transition-all duration-500"
-            >
+            </div>
 
-              <h3 className="text-3xl sm:text-4xl font-semibold mb-4">
-                Rubén López
+            <div className="bg-cyan-400 text-black rounded-[32px] p-8 text-left">
+
+              <h3 className="text-2xl font-black mb-6">
+                Objetivo final
               </h3>
 
-              <p className="text-white/60 mb-4 text-base sm:text-lg">
-                Sistemas de contenido de alta retención y estrategia de crecimiento.
+              <p className="text-lg font-semibold leading-relaxed">
+                Convertir Instagram en una máquina de autoridad,
+                distribución y monetización alrededor de tu marca personal.
               </p>
 
-              <p className="text-white/40 text-sm">
-                Perfil de Instagram • creador de contenido
-              </p>
-
-            </a>
+            </div>
 
           </div>
 
         </div>
+
       </section>
 
-      {/* CTA */}
-      <section className="py-24 sm:py-40 px-5 sm:px-6 border-t border-white/10">
-
-        <div className="max-w-5xl mx-auto text-center">
-
-          <p className="uppercase tracking-[0.35em] text-[10px] sm:text-xs text-white/40 mb-8">
-            Contacto
-          </p>
-
-          <h2 className="text-3xl sm:text-5xl md:text-7xl font-semibold leading-tight mb-10">
-            Tu contenido puede verse bien.
-            <br />
-            O puede generar impacto.
-          </h2>
-
-          <p className="text-white/60 text-base sm:text-xl leading-relaxed max-w-3xl mx-auto mb-12">
-            La diferencia está en la estrategia, la percepción y cómo se construye la atención.
-          </p>
-
-          <a
-            href="https://www.instagram.com/srogeredits/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center border border-white/20 rounded-full px-8 py-4 text-sm sm:text-base hover:bg-white hover:text-black transition-all duration-500"
-          >
-            Contactar por Instagram
-          </a>
-
-        </div>
-      </section>
+      <footer className="border-t border-white/10 py-10 text-center text-zinc-500 text-sm relative z-10">
+        STRATEGY PRODUCED BY SROGEREDITS — Content Systems • Distribution • Monetization
+      </footer>
 
     </main>
-  );
+  )
 }
